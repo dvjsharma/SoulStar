@@ -17,6 +17,7 @@ import requests
 from flask import Flask, request, jsonify
 from typing import Optional
 from dotenv import load_dotenv
+from datastore import suggestions_store
 
 app = Flask(__name__)
 
@@ -86,7 +87,7 @@ def generate_report() -> dict:
 
 
 @app.route("/query", methods=["POST"])
-def process_query():
+def process_query(isFirstTime: bool = False):
     """
     Process the query and return the response.
 
@@ -103,6 +104,24 @@ def process_query():
 
     if not query:
         raise ValueError("'query' is required.")
+    
+    suggestions = []
+    if not isFirstTime:
+        suggestion_ids = ["sug1", "sug2", "sug3"]
+        for sug_id in suggestion_ids:
+            suggestion = suggestions_store.get(sug_id)
+            if suggestion:
+                suggestions.append({
+                    "suggestion_id": sug_id,
+                    "text": suggestion["text"],
+                    "nested_suggestions": [
+                        {
+                            "suggestion_id": nested_sug_id,
+                            "text": nested_sug["text"]
+                        }
+                        for nested_sug_id, nested_sug in suggestion["nested_suggestions"].items()
+                    ]
+                })
     tweaks = {
             "ChatInput-LKM8B": {
             "background_color": "",
