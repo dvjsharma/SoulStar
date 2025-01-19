@@ -97,6 +97,8 @@ APPLICATION_TOKEN=<your_application_token>
 ENDPOINT=<your_endpoint>
 DEBUG=<your_debug>
 HOST=<your_host>
+PORT=<your_port>
+```
 
 ## 👨‍👩‍👧‍👦 Team
 
@@ -105,8 +107,7 @@ HOST=<your_host>
 - [**Samriddhi Sharma**](https://www.linkedin.com/in/samriddhi-sharma-b07b81254/)
 - [**Akash Kumar Sah**](https://www.linkedin.com/in/akashsah2003)
 
-PORT=<your_port>
-```
+
 
 
 
