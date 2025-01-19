@@ -45,9 +45,9 @@ export function Hero() {
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     <div className="max-w-2xl mx-auto text-center px-4 py-12 rounded-lg">
                         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                            Discover Your Path with{" "}
+                        Find Peace And Purpose with {" "}
                             <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-indigo-500">
-                                AI-Powered
+                            Personalized 
                             </span>{" "}
                             Spiritual Guidance
                         </h1>
