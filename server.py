@@ -99,20 +99,20 @@ def process_query():
     """
     data = request.json
     query = data.get("query", "")
-    name = data.get("name", "")
-    date_of_birth = data.get("dob", "")
-    time_of_birth = data.get("tob", "")
-    place_of_birth = data.get("pob", "")
+    sesion_id = data.get("session_id", "")
 
     if not query:
         raise ValueError("'query' is required.")
     tweaks = {
-        "Prompt-6ESjz": {
-            "template": "{context}\n\nYou are an astrology analyser. Based on the above context about the astrological charts of different years and previous chat memory answer the question after getting the astrological chart.\n\nQuestion: I am "
-            + f"{name} born at {date_of_birth} at {time_of_birth} at {place_of_birth}"
-            + " {question}\nAnswer:",
-            "context": "",
-            "question": "",
+            "ChatInput-LKM8B": {
+            "background_color": "",
+            "chat_icon": "",
+            "files": "",
+            "sender": "User",
+            "sender_name": "User",
+            "session_id": sesion_id,
+            "should_store_message": True,
+            "text_color": "",
         },
     }
     try:
