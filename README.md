@@ -25,10 +25,10 @@ Whether you’re a beginner seeking clarity, an intermediate user building deepe
 - **🌙 Sleep Content:** Personalized audio and visual content to support spiritual wellness.  
 
 ### 💬 4. Interactive Chatbot  
-- A 24/7 AI-driven chatbot for personalized spiritual guidance.  
-- The chatbot powers all features by analyzing user input and providing real-time responses.  
-
----
+- 🤖 A 24/7 AI-driven chatbot designed to understand your emotions and provide personalized spiritual guidance.  
+- 🧠 Utilizes advanced emotional analysis to interpret your feelings and suggest tailored prompts and insights.  
+- 🗣️ Engages in empathetic conversations, ensuring you feel heard and supported throughout your spiritual journey.  
+  
 
 ## 🛠️ How It Works  
 
