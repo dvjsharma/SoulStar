@@ -121,7 +121,7 @@ export default function CosmicChatbot() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
-      text: "Welcome to the Cosmic Guide! Ask me anything about your celestial journey...",
+      text: "Welcome to SoulStar! What may I call you?",
       sender: "bot",
     },
   ]);
@@ -186,7 +186,7 @@ export default function CosmicChatbot() {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-[#2E0854] to-[#4B0082] text-white relative overflow-hidden">
+    <main className="min-h-screen bg-gradient-to-r from-purple-900 via-indigo-800 to-purple-900 text-white relative overflow-hidden">
       <CosmicRings />
       <CosmicParticles />
 
@@ -198,7 +198,7 @@ export default function CosmicChatbot() {
             </div>
           </div>
           <h1 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-200 to-pink-200">
-            Cosmic Guide
+            Reveal your astrological destiny
           </h1>
         </header>
 

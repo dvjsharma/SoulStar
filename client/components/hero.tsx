@@ -65,7 +65,7 @@ export function Hero() {
                             animate={{ opacity: 3, y: 0 }}
                             transition={{ delay: 0.7 }}
                         >
-                            <Link href="/kundli-generation" passHref>
+                            <Link href="/chatbot" passHref>
                                 <Button
                                     size="lg"
                                     className="bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-semibold px-6 py-3 rounded-full hover:scale-105 transform transition-transform shadow-lg"
