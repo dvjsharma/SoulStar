@@ -18,8 +18,10 @@ from flask import Flask, request, jsonify
 from typing import Optional
 from dotenv import load_dotenv
 from datastore import suggestions_store
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 BASE_API_URL = os.environ.get("BASE_API_URL")
 LANGFLOW_ID = os.environ.get("LANGFLOW_ID")

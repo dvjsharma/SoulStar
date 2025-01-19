@@ -155,13 +155,37 @@ export default function CosmicChatbot() {
     setIsLoading(true);
 
     // Simulate bot response
-    setTimeout(() => {
+    // try {
+      // Replace with your actual API URL
+      const response = await fetch("http://localhost:5000/query", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ query: text, session_id: 'abc' }),
+      });
+  
+      if (!response.ok) {
+        throw new Error("Failed to fetch response from API");
+      }
+  
+      const data = await response.json();
+  
       const botMessage: Message = {
-        id: (Date.now() + 1).toString(),
-        text: "As the cosmic energies align, I perceive... This is a simulated response. In a real implementation, you would integrate with your preferred AI service here.",
+        id: Date.now().toString(),
+        text: data.message || "The cosmos whispers, but I can't interpret it right now.",
         sender: "bot",
       };
       setMessages((prev) => [...prev, botMessage]);
+    // } catch (error) {
+      // console.error("Error fetching API response:", error);
+      // const errorMessage: Message = {
+      //   id: Date.now().toString(),
+      //   text: "Something went wrong. Please try again later.",
+      //   sender: "bot",
+      // };
+      // setMessages((prev) => [...prev, errorMessage]);
+    // };
       setIsLoading(false);
 
       // Update suggestions based on context
@@ -182,8 +206,7 @@ export default function CosmicChatbot() {
           icon: Heart,
         },
       ]);
-    }, 1500);
-  };
+    };
 
   return (
     <main className="min-h-screen bg-gradient-to-r from-purple-900 via-indigo-800 to-purple-900 text-white relative overflow-hidden">
