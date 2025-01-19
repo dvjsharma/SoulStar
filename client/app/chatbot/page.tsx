@@ -10,6 +10,10 @@ import {
   Heart,
   Star,
 } from "lucide-react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeHighlight from "rehype-highlight";
+import "highlight.js/styles/github.css";
 
 type Message = {
   id: string;
@@ -155,7 +159,7 @@ export default function CosmicChatbot() {
     setIsLoading(true);
 
     // Simulate bot response
-    // try {
+    try {
       // Replace with your actual API URL
       const response = await fetch("http://localhost:5000/query", {
         method: "POST",
@@ -177,15 +181,15 @@ export default function CosmicChatbot() {
         sender: "bot",
       };
       setMessages((prev) => [...prev, botMessage]);
-    // } catch (error) {
-      // console.error("Error fetching API response:", error);
-      // const errorMessage: Message = {
-      //   id: Date.now().toString(),
-      //   text: "Something went wrong. Please try again later.",
-      //   sender: "bot",
-      // };
-      // setMessages((prev) => [...prev, errorMessage]);
-    // };
+    } catch (error) {
+      console.error("Error fetching API response:", error);
+      const errorMessage: Message = {
+        id: Date.now().toString(),
+        text: "Something went wrong. Please try again later.",
+        sender: "bot",
+      };
+      setMessages((prev) => [...prev, errorMessage]);
+    };
       setIsLoading(false);
 
       // Update suggestions based on context
@@ -227,28 +231,34 @@ export default function CosmicChatbot() {
 
         <div className="flex-1 overflow-y-auto mb-6 space-y-4 scrollbar-thin scrollbar-thumb-purple-500 scrollbar-track-purple-900">
           <AnimatePresence>
-            {messages.map((message) => (
-              <motion.div
-                key={message.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                className={`flex ${
-                  message.sender === "user" ? "justify-end" : "justify-start"
-                }`}
+          {messages.map((message) => (
+            <motion.div
+              key={message.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className={`flex ${
+                message.sender === "user" ? "justify-end" : "justify-start"
+              }`}
+            >
+              <div
+                className={`max-w-[80%] p-4 rounded-2xl backdrop-blur-md
+                  ${
+                    message.sender === "user"
+                      ? "bg-purple-500/30 rounded-tr-none"
+                      : "bg-white/10 rounded-tl-none"
+                  }`}
               >
-                <div
-                  className={`max-w-[80%] p-4 rounded-2xl backdrop-blur-md
-                    ${
-                      message.sender === "user"
-                        ? "bg-purple-500/30 rounded-tr-none"
-                        : "bg-white/10 rounded-tl-none"
-                    }`}
-                >
-                  <p className="text-white/90">{message.text}</p>
-                </div>
-              </motion.div>
-            ))}
+              <ReactMarkdown
+                remarkPlugins={[remarkGfm]}
+                rehypePlugins={[rehypeHighlight]}
+                className="text-white/90 markdown-body"
+              >
+                {message.text}
+              </ReactMarkdown>
+              </div>
+            </motion.div>
+          ))}
           </AnimatePresence>
           {isLoading && (
             <motion.div
