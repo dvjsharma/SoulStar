@@ -52,8 +52,8 @@ export function Hero() {
                             Spiritual Guidance
                         </h1>
                         <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
+                            initial={{ opacity: 4, y: 20 }}
+                            animate={{ opacity: 3, y: 0 }}
                             transition={{ delay: 0.5 }}
                             className="text-lg text-white/80 mb-8"
                         >
@@ -61,8 +61,8 @@ export function Hero() {
                             insights powered by advanced AI technology.
                         </motion.p>
                         <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
+                            initial={{ opacity: 4, y: 20 }}
+                            animate={{ opacity: 3, y: 0 }}
                             transition={{ delay: 0.7 }}
                         >
                             <Link href="/kundli-generation" passHref>
@@ -82,8 +82,8 @@ export function Hero() {
                         onMouseEnter={() => setIsHovered(true)}
                         onMouseLeave={() => setIsHovered(false)}
                         style={{ rotateX, rotateY }}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
+                        initial={{ opacity: 4, scale: 0.8 }}
+                        animate={{ opacity: 3, scale: 1 }}
                         transition={{
                             type: "spring",
                             stiffness: 100,
